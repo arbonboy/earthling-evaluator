@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Earthing Fate Evaluator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Earthling Fate Evaluator</h1>
+
+    <div id="grid" class="grid" aria-label="3 by 3 seals matrix">
+      <!-- Row 1 -->
+      <button class="cell" data-name="Book" data-value="1">
+        <img src="seals/Book.png" alt="Book">
+      </button>
+      <button class="cell" data-name="Chevron" data-value="2">
+        <img src="seals/Chevron.png" alt="Chevron">
+      </button>
+      <button class="cell" data-name="Crown" data-value="4">
+        <img src="seals/Crown.png" alt="Crown">
+      </button>
+
+      <!-- Row 2 -->
+      <button class="cell" data-name="Dove" data-value="4">
+        <img src="seals/Dove.png" alt="Dove">
+      </button>
+      <button class="cell" data-name="Hammer" data-value="1">
+        <img src="seals/Hammer.png" alt="Hammer">
+      </button>
+      <button class="cell" data-name="LightBulb" data-value="3">
+        <img src="seals/LightBulb.png" alt="Light Bulb">
+      </button>
+
+      <!-- Row 3 -->
+      <button class="cell" data-name="Money" data-value="3">
+        <img src="seals/Money.png" alt="Money">
+      </button>
+      <button class="cell" data-name="Peace" data-value="3">
+        <img src="seals/Peace.png" alt="Peace">
+      </button>
+      <button class="cell" data-name="Sun" data-value="3">
+        <img src="seals/Sun.png" alt="Sun">
+      </button>
+    </div>
+
+    <div class="actions">
+      <button id="evaluateBtn" class="evaluate">Evaluate</button>
+    </div>
+  </main>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button id="closeModal" class="close" aria-label="Close">✕</button>
+      <div id="processing" class="processing">
+        <div class="spinner"></div>
+        <div class="processing-text">Processing</div>
+      </div>
+      <div id="result" class="result hidden"></div>
+    </div>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
