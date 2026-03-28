@@ -25,8 +25,21 @@ h1{text-align:center;margin:0 0 18px;font-weight:600}
 .processing{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
 .spinner{width:72px;height:72px;border-radius:50%;border:8px solid rgba(15,23,36,0.08);border-top-color:var(--accent);animation:spin 1s linear infinite}
 .processing-text{color:var(--muted);font-size:18px}
-.result{display:flex;align-items:center;justify-content:center;font-weight:800;font-size:48px;color:var(--accent);text-align:center}
+.result{display:flex;align-items:center;justify-content:center;font-weight:800;font-size:128px;color:var(--accent);text-align:center}
+
+.result.survivor{
+  color: forestgreen;
+  border: 5px solid #000;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+.result.test-subject{
+  color: #DE3163;
+  border: 5px solid #000;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
 
 @keyframes spin{to{transform:rotate(360deg)}}
 
-@media(min-width:720px){.container{max-width:720px}.result{font-size:84px}}
+@media(min-width:720px){.container{max-width:720px}.result{font-size:128px}}

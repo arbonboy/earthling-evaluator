@@ -17,10 +17,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
     cells.forEach(c=>c.classList.remove('selected'));
     resultEl.textContent = '';
     resultEl.classList.add('hidden');
-    // restore spinner animation for next run
+    // remove result state classes
+    resultEl.classList.remove('survivor','test-subject');
+    // restore spinner animation for next run and ensure processing is hidden
     const spinner = processingEl.querySelector('.spinner');
     if(spinner){ spinner.style.animation = ''; }
-    processingEl.classList.remove('hidden');
+    processingEl.classList.add('hidden');
     modal.classList.add('hidden');
   }
 
@@ -28,6 +30,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     // open modal
     modal.classList.remove('hidden');
     processingEl.classList.remove('hidden');
+    // ensure processing is visible (use inline style to override any CSS specificity issues)
+    processingEl.style.display = 'flex';
     resultEl.classList.add('hidden');
 
     // calculate sum during processing
@@ -41,12 +45,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
       const spinner = processingEl.querySelector('.spinner');
       if(spinner){ spinner.style.animation = 'none'; }
       processingEl.classList.add('hidden');
-      // show result
+      // also set inline display to none to guarantee it's not visible
+      processingEl.style.display = 'none';
+      // show result and apply styles based on outcome
       resultEl.classList.remove('hidden');
+      resultEl.classList.remove('survivor','test-subject');
       if(total>13){
         resultEl.textContent = 'Survivor!';
+        resultEl.classList.add('survivor');
       } else {
         resultEl.textContent = 'Test Subject';
+        resultEl.classList.add('test-subject');
       }
     }, 4000);
   });
